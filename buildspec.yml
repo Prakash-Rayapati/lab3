@@ -9,13 +9,13 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t websiteimage:1 .
-      - docker tag websiteimage:1 864899837235.dkr.ecr.ap-south-1.amazonaws.com/prakash-u21/repo-u21:1
+      - docker build -t websiteimage:2 .
+      - docker tag websiteimage:2 864899837235.dkr.ecr.ap-south-1.amazonaws.com/prakash-u21/repo-u21:2
 
   post_build:
     commands:
       - echo Pushing the Docker image to ECR...
-      - docker push 864899837235.dkr.ecr.ap-south-1.amazonaws.com/prakash-u21/repo-u21:1
+      - docker push 864899837235.dkr.ecr.ap-south-1.amazonaws.com/prakash-u21/repo-u21:2
       - echo Writing image definitions file...
       - printf '[{"name":"prakash-ecs-container-pld-u21","imageUri":"%s"}]' 864899837235.dkr.ecr.ap-south-1.amazonaws.com/prakash-u21/repo-u21:1 > imagedefinitions.json
 
